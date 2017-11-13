@@ -1,14 +1,13 @@
 import requests, json
 
-auth = 'Authorization: token 10941eae442b56741da1669807b7d711ae0fe978'
+token = 'your token'	
+auth = {'Authorization': 'token '+str(token)}
 url = 'https://api.github.com/search/repositories?q=django&sort=stars'
 
 file = open('output1.txt', 'w')
 file.write('Name\tScore\tRepo\n')
 
-request = requests.get(url, params = {
-'Authorization': 'token 10941eae442b56741da1669807b7d711ae0fe978'
-	})
+request = requests.get(url,headers=auth)
 data = json.loads(request.content)
 
 if request.ok:

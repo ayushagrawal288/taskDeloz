@@ -1,7 +1,8 @@
 import requests, json
 from pprint import pprint
 
-auth = {'Authorization': 'token 10941eae442b56741da1669807b7d711ae0fe978'}
+token = 'your token'
+auth = {'Authorization': 'token '+str(token)}
 url = 'https://api.github.com/search/repositories?q=django&sort=stars'
 
 outputfile = open('output2.txt', 'w')
